@@ -1,38 +1,277 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: white;
+  overflow-y: hidden;
+  overflow-x: hidden;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.background {
+  width: 100vw;
+  height: 100vh;
+  background-image: linear-gradient(#000000 20%, #070213, #5a0dfd);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.navbar {
+  width: 100vw;
+  height: 7rem;
+  background-color: transparent;
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: center;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.logo {
+  position: absolute;
+  top: 2rem;
+  left: 4rem;
+  font-family: 'Inria Sans', sans-serif;
+  font-size: 1.5rem;
+}
+
+.connection-div {
+  position: absolute;
+  display: flex;
+  top: 2rem;
+  right: 4rem;
+  color: #cccccc;
+}
+
+.logout {
+  margin-right: 1rem;
+  position: relative;
+  top: 8px;
+  color: #cccccc;
+  cursor: pointer;
+}
+
+.wallet-div {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.wallet-btn {
+  background-color: transparent;
+  border-color: #cccccc;
+  border-style: solid;
+  border-width: 3.5px;
+  border-radius: 10px;
+  width: 11rem;
+  height: 2.5rem;
+  color: #cccccc;
+  font-family: 'Inria Sans', sans-serif;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+}
+
+.accountText {
+  color: #cccccc;
+}
+
+.container {
+  font-family: 'Inria Sans', sans-serif;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  width: 50vw;
+  height: 50vh;
+  min-width: 20rem;
+  min-height: 25rem;
+  background-image: linear-gradient(#5430ff, #6d47bf);
+  border-radius: 20px;
+  position: relative;
+}
+
+h1 {
+  font-size: 3.5rem;
+}
+
+@media (max-width: 1050px) {
+  h1 {
+    font-size: 3rem;
+  }
+
+  .nftCount {
+    font-size: 1.3rem;
+  }
+
+  .send-btn, .mint-qty {
+    width: 18rem !important;
+  }
+
+  .enter-qty {
+    font-size: 1.8rem !important;
+  }
+}
+
+@media (max-width: 800px) {
+  h1 {
+    font-size: 2.7rem;
+  }
+
+  .nftCount {
+    font-size: 1.1rem;
+    padding-top: 2px;
+  }
+
+  .send-btn, .mint-qty {
+    width: 15rem !important;
+  }
+
+  .enter-qty {
+    font-size: 1.6rem !important;
+  }
+
+  .get-btn {
+    font-size: 0.7rem !important;
+    width: 3.5rem !important;
+    height: 0.5rem !important; 
+    padding-top: 2px;
+  }
+}
+
+@media (max-width: 550px) {
+  .logo {
+    display: none;
+  }
+
+  .wallet-btn {
+    width: 9.5rem;
+  }
+}
+
+.green-text {
+  color: #1be505;
+}
+
+.nftCount {
+  margin: 2rem auto 1rem;
+}
+
+form input::placeholder {
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+form input:focus {
+  outline: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.get-btn {
+  background-color: transparent;
+  border-style: solid;
+  border-color: white;
+  border-width: 2px;
+  border-radius: 5px;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+  width: 5rem;
+  height: 1.5rem;
+  margin-left: 1rem;
+  position: relative;
+  bottom: 2px;
+  padding-bottom: 1.3rem;
+  cursor: pointer;
+}
+
+.mint-qty {
+  width: 20rem;
+  height: 3.5rem;
+  margin-top: 1rem;
+  background-color: transparent;
+  border-radius: 9px;
+  border-style: solid;
+  border-color: white;
+  border-width: 4px;
+  color: white;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  font-size: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mint-qty::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+.mint-qty:focus {
+  outline: none;
+}
+
+.enter-qty {
+  display: flex;
+  font-size: 2rem;
+}
+
+.max-qty {
+  font-size: 1.5rem;
+  color: red;
+}
+
+.add, .subtract {
+  cursor: pointer;
+}
+
+.final-qty {
+  width: 2rem;
+  text-align: center;
+  margin-left: 10px;
+  margin-right: 7px;
+}
+
+.input {
+  width: 20rem;
+  height: 3rem;
+  background-color: transparent;
+  border-style: solid;
+  border-width: 3.5px;
+  border-color: white;
+  margin: 1rem auto 0;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  color: #4dfed4;
+  font-size: 1rem;
+}
+
+.input::placeholder {
+  color: white;
+}
+
+.input:focus {
+  outline: none;
+}
+
+.send-btn {
+  background-color: #75f90d;
+  border: none;
+  color: #5811ef;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.2rem;
+  width: 20rem;
+  height: 2.5rem;
+  margin-top: 1.5rem;
+  cursor: pointer;
+  border-radius: 9px;
+}
+
+.loading-msg {
+  position: absolute;
+  bottom: 2rem;
+  color: #1be505;
+  font-family: 'Inria Sans', sans-serif;
+  width: 100%;
+  text-align: center;
+}
+
+.App {
+  text-align: center;
 }
