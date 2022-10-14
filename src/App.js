@@ -5,6 +5,7 @@ import XiroNFT_Abi from './contractsData/XiroNFT_Abi.json'
 import XiroNFT_Address from './contractsData/XiroNFT_Address.json'
 import cards from './cardsImg.png'
 import './App.css';
+import axios from 'axios';
 
 function App() {
   
@@ -25,7 +26,7 @@ function App() {
   const login = async () => {
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     const { chainId } = await provider.getNetwork();
-    if (chainId == 5) {
+    if (chainId == 1) {
       const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
       setAccount(accounts[0]);
       const signer = provider.getSigner();
@@ -81,9 +82,13 @@ function App() {
   const mintNFT = async (e) => {
     if(account) {
       e.preventDefault();
+      const response = await axios.post('https://alpha-api.xiroverse.com/v1/sign' + account);
+      if(response.status != 200) {
+        return alert("Sorry, you're not whitelisted!!")
+      }
       let pricePerNFT = 0.1;
       let totalPrice = mintQty * pricePerNFT;
-      const txResponse = await xiroNFT.mint(mintQty, {value: ethers.utils.parseEther(String(totalPrice))});
+      const txResponse = await xiroNFT.mint(mintQty, response.data.signature, {value: ethers.utils.parseEther(String(totalPrice))});
       setLoadingMsg('Processing...');
       await txResponse.wait();
       await nftBalance();
