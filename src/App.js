@@ -3,6 +3,7 @@ import { ethers } from "ethers"
 import Navbar from './components/Navbar';
 import XiroNFT_Abi from './contractsData/XiroNFT_Abi.json'
 import XiroNFT_Address from './contractsData/XiroNFT_Address.json'
+import cards from './cardsImg.png'
 import './App.css';
 
 function App() {
@@ -138,6 +139,10 @@ function App() {
       />
 
       <div>
+        <img src={cards} alt="xiro-cards" class="bg-card" />
+      </div>
+
+      <div>
         {loading ? (
           <div className="container">
             <h1>CONNECT WALLET</h1>
@@ -163,6 +168,8 @@ function App() {
 
               <div className="green-text max-qty">10 MAX</div>
             </div> 
+
+            <h2 class="price">PRICE:<span class="green-text">&nbsp;0.1</span> ETH (+GAS FEES)</h2>
 
             <form onSubmit={mintNFT} autoComplete="off">
               <button className="send-btn" type="submit">MINT</button>

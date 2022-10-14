@@ -14,6 +14,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 .navbar {
@@ -75,13 +78,30 @@
   color: #cccccc;
 }
 
+.bg-card {
+  width: 42vw;
+  position: relative;
+  top: 1vw;
+}
+
+@media (max-width: 1100px) {
+  .bg-card {
+    display: none;
+    position: absolute;
+  }
+  .background {
+    flex-direction: column;
+    position: relative;
+  }
+}
+
 .container {
   font-family: 'Inria Sans', sans-serif;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 50vw;
+  width: 45vw;
   height: 50vh;
   min-width: 20rem;
   min-height: 25rem;
@@ -214,7 +234,7 @@ form input:focus {
 
 .max-qty {
   font-size: 1.5rem;
-  color: red;
+  color: #cccccc;
 }
 
 .add, .subtract {
@@ -250,6 +270,11 @@ form input:focus {
   outline: none;
 }
 
+.price {
+  margin: 1rem auto 0;
+  font-size: 1.3rem;
+}
+
 .send-btn {
   background-color: #75f90d;
   border: none;
@@ -258,7 +283,7 @@ form input:focus {
   font-size: 1.2rem;
   width: 20rem;
   height: 2.5rem;
-  margin-top: 1.5rem;
+  margin-top: 1rem;
   cursor: pointer;
   border-radius: 9px;
 }
