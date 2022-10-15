@@ -86,7 +86,8 @@ function App() {
   /************************************* Write Functions *******************************************/
 
   const mintNFT = async (e) => {
-    const url = "http://localhost:8000/v1/sign?walletAddress=" + account;
+    const url =
+      "https://alpha-api.xiroverse.com/v1/sign?walletAddress=" + account;
     if (account) {
       try {
         e.preventDefault();
