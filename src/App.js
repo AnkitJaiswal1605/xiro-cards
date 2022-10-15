@@ -82,7 +82,7 @@ function App() {
   const mintNFT = async (e) => {
     if(account) {
       e.preventDefault();
-      const response = await axios.post('https://alpha-api.xiroverse.com/v1/sign' + account);
+      const response = await axios.post('https://alpha-api.xiroverse.com/v1/sign/' + account);
       if(response.status != 200) {
         return alert("Sorry, you're not whitelisted!!")
       }
